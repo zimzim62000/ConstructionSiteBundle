@@ -1,0 +1,36 @@
+{
+	"name": "zimzim62000/categoryproduct-bundle",
+	"description": "Symfony2 add and manageme construction sites",
+	"keywords": ["Symfony", "construction site bundle"],
+	"homepage": "https://github.com/zimzim62000/ConstructionSiteBundle",
+	"type": "symfony-bundle",
+	"license": "MIT",
+	"authors": [{"name": "Zimmmermann Fabien", "email": "zimzim62000@gmail.com"}],
+	"require": {
+		"php": ">=5.4.0",
+		"symfony/symfony": ">=2.0.0",
+		"twig/twig": ">=1.5.0"
+	},
+	"autoload": {
+		"psr-4": { "ZIMZIM\\ConstructionSiteBundle\\": "" }
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0-dev"
+		}
+	},
+	"repositories": [
+	    {
+	        "type":"package",
+	        "package": {
+			"name": "zimzim62000/construction-site",
+	          	"version":"master",
+	          	"source": {
+	              		"url": "https://github.com/zimzim62000/ConstructionSiteBundle.git",
+	              		"type": "git",
+	              		"reference":"master"
+	        	}
+	       }
+	    }
+	]
+}
