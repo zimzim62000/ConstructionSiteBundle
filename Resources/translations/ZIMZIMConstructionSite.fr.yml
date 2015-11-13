@@ -1,0 +1,16 @@
+constructionsite:
+    name: "Nom du chantier"
+    text: "Description du chantier"
+    titleSeo: "Titre article ( Réferencement )"
+    descSeo: "Description ( Réferencement )"
+    city: "Ville"
+    date: "Date du chantier"
+    duration: "Durée du chantier"
+    imagebefore: "Image avant chantier"
+    imagepending: "Image pendant chantier"
+    imageafter: "Image aprés chantier"
+zimzim_constructionsite:
+    index:
+        title: "Liste des chantiers"
+    new:
+        title: "Nouveau chantier"

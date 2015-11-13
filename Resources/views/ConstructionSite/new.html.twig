@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'zimzim_constructionsite.new..title'|trans({}, "ZIMZIMConstructionSite") }}
+{% endblock title %}
+
+
+{% block page %}
+    <div class="row">
+        <div class="medium-12 columns">
+            <h1 class="text-center title">
+                {{ 'zimzim_constructionsite.new.title'|trans({}, "ZIMZIMConstructionSite") }}
+            </h1>
+        </div>
+    </div>
+
+    <div class="">
+        {{ form(form) }}
+    </div>
+
+    <div class="row">
+        <div class="small-4 columns text-left">
+            <a class="link-return" href="{{ path('zimzim_constructionsite_constructionsite') }}">
+                <i class="icon-arrow-left icon-large vertical"></i>
+                {{ 'link.return'|trans }}
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

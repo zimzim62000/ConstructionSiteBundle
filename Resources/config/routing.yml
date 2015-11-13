@@ -1,0 +1,3 @@
+zimzim_categoryproduct_itemhome:
+    resource: "@ZIMZIMConstructionSiteBundle/Resources/config/routing/admin_constructionsite.yml"
+    prefix:   /zimzim/constructionsite/

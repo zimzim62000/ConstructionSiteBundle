@@ -1,0 +1,6 @@
+services:
+    zimzim_constructionsite_configuration_constructionsite:
+        class: "ZIMZIM\ConstructionSiteBundle\Doctrine\Configuration\ConfigurationConstructionSite"
+        arguments:
+            - @zimzim_constructionsite.entity.constructionsite
+            - %zimzim_construction_site.constructionsite_form%

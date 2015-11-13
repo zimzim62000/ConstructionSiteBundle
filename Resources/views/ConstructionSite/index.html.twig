@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'zimzim_constructionsite.index.title'|trans({}, "ZIMZIMConstructionSite") }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="small-10 columns">
+            <h1 class="text-center title">
+                {{ 'zimzim_constructionsite.index.title'|trans({}, "ZIMZIMConstructionSite") }}
+            </h1>
+        </div>
+        <div class="small-2 columns">
+            <a class="tiny button" href="{{ path('zimzim_constructionsite_constructionsite_new') }}">
+                {{ 'button.create'|trans }}
+            </a>
+        </div>
+    </div>
+
+
+    {{ grid(grid) }}
+
+{% endblock %}

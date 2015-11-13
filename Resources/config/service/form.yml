@@ -1,0 +1,6 @@
+services:
+    zimzim_construction_site.form.constructionsiteform:
+        class: ZIMZIM\ConstructionSiteBundle\Form\Type\ConstructionSiteType
+        arguments: [ @zimzim_construction_site_constructionsitemanager ]
+        tags:
+            - { name: form.type, alias: zimzim_constructionsitebundle_constructionsitetype }

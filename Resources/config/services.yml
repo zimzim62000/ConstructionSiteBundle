@@ -1,4 +1,7 @@
-services:
-#    zimzim62000_construction_site.example:
-#        class: zimzim62000\ConstructionSiteBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+imports:
+    - { resource: service/config.yml }
+    - { resource: service/form.yml }
+    - { resource: service/manager.yml }
+    - { resource: service/entity.yml }
+    #- { resource: service/factory.yml }
+    #- { resource: service/validator.yml }

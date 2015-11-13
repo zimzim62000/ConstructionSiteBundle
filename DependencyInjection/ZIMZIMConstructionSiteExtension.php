@@ -22,6 +22,10 @@ class ZIMZIMConstructionSiteExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter($this->getAlias() . '.constructionsite_class', $config['constructionsite_class']);
+        $container->setParameter($this->getAlias() . '.constructionsite_repo', $config['constructionsite_repo']);
+        $container->setParameter($this->getAlias() . '.constructionsite_form', $config['constructionsite_form']);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

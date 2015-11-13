@@ -1,0 +1,6 @@
+services:
+    zimzim_construction_site_constructionsitemanager:
+        class: "ZIMZIM\ConstructionSiteBundle\Doctrine\ConstructionSiteManager"
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @zimzim_constructionsite_configuration_constructionsite

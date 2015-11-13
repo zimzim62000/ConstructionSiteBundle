@@ -24,6 +24,13 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
 
+        $rootNode
+            ->children()
+            ->scalarNode('constructionsite_class')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('constructionsite_repo')->defaultValue('ZIMZIM\ConstructionSiteBundle\Model\ConstructionSiteRepository')->end()
+            ->scalarNode('constructionsite_form')->defaultValue('zimzim_constructionsitebundle_constructionsitetype')->end();
+
+
         return $treeBuilder;
     }
 }
