@@ -1,0 +1,36 @@
+zimzim_constructionsite_actionitem:
+    path:     /
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:index" }
+
+zimzim_constructionsite_actionitem_show:
+    path:     /{id}/show/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:show" }
+
+zimzim_constructionsite_actionitem_new:
+    path:     /new/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:new" }
+
+zimzim_constructionsite_actionitem_create:
+    path:     /create/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:create" }
+    methods:  POST
+
+zimzim_constructionsite_actionitem_edit:
+    path:     /{id}/edit/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:edit" }
+
+zimzim_constructionsite_actionitem_update:
+    path:     /{id}/update/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:update" }
+    methods:  [POST, PUT]
+
+zimzim_constructionsite_actionitem_delete:
+    path:     /{id}/delete/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:delete" }
+    methods:  [POST, DELETE]
+
+zimzim_constructionsite_actionitem_addoncs:
+    path:     /{id}/addoncs/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ActionItem:addActionItemOnConstructionSite" }
+    methods:  POST|GET
+

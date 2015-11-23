@@ -5,3 +5,7 @@ zimzim_constructionsitebundle_constructionsite:
 zimzim_constructionsitebundle_typeactionitem:
     resource: "@ZIMZIMConstructionSiteBundle/Resources/config/routing/admin_typeactionitem.yml"
     prefix:   /zimzim/typeactionitem/
+
+zimzim_constructionsitebundle_actionitem:
+    resource: "@ZIMZIMConstructionSiteBundle/Resources/config/routing/admin_actionitem.yml"
+    prefix:   /zimzim/actionitem/

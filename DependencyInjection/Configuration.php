@@ -31,7 +31,10 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('constructionsite_form')->defaultValue('zimzim_constructionsitebundle_constructionsitetype')->end()
             ->scalarNode('typeactionitem_class')->isRequired()->cannotBeEmpty()->end()
             ->scalarNode('typeactionitem_repo')->defaultValue('ZIMZIM\ConstructionSiteBundle\Model\TypeActionItemRepository')->end()
-            ->scalarNode('typeactionitem_form')->defaultValue('zimzim_constructionsitebundle_typeactionitemtype')->end();
+            ->scalarNode('typeactionitem_form')->defaultValue('zimzim_constructionsitebundle_typeactionitemtype')->end()
+            ->scalarNode('actionitem_class')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('actionitem_repo')->defaultValue('ZIMZIM\ConstructionSiteBundle\Model\ActionItemRepository')->end()
+            ->scalarNode('actionitem_form')->defaultValue('zimzim_constructionsitebundle_actionitemtype')->end();
 
         return $treeBuilder;
     }

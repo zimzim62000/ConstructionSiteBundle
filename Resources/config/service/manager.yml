@@ -11,3 +11,9 @@ services:
         arguments:
             - @doctrine.orm.entity_manager
             - @zimzim_constructionsite_configuration_typeactionitem
+
+    zimzim_construction_site_actionitemmanager:
+        class: "ZIMZIM\ConstructionSiteBundle\Doctrine\ActionItemManager"
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @zimzim_constructionsite_configuration_actionitem

@@ -6,13 +6,9 @@
 {% endblock title %}
 
 {% block page %}
-    <div class="row">
-        <div class="medium-12 columns">
-            <h1 class="text-center title">
-                {{ 'zimzim_constructionsite.show.title'|trans({"%name%": entity.name}, "ZIMZIMConstructionSite") }}
-            </h1>
-        </div>
-    </div>
+    <h1 class="text-center title">
+        {{ 'zimzim_constructionsite.show.title'|trans({"%name%": entity.name}, "ZIMZIMConstructionSite") }}
+    </h1>
     <div class="row">
         <div class="medium-12 columns">
             <table class="width-100 panel">
@@ -47,15 +43,15 @@
                 </tr>
                 <tr>
                     <th>Pathbefore</th>
-                    <td><img src="/{{ entity.getWebPathBefore }}" class="img-medium" /></td>
+                    <td><img src="/{{ entity.getWebPathBefore }}" class="img-medium"/></td>
                 </tr>
                 <tr>
                     <th>Pathpending</th>
-                    <td><img src="/{{ entity.getWebPathPending }}" class="img-medium" /></td>
+                    <td><img src="/{{ entity.getWebPathPending }}" class="img-medium"/></td>
                 </tr>
                 <tr>
                     <th>Pathafter</th>
-                    <td><img src="/{{ entity.getWebPathAfter }}" class="img-medium" /></td>
+                    <td><img src="/{{ entity.getWebPathAfter }}" class="img-medium"/></td>
                 </tr>
                 <tr>
                     <th>Titleseo</th>
@@ -68,6 +64,22 @@
                 </tbody>
             </table>
 
+            <h2 class="text-center">
+                {{ 'zimzim_constructionsite.show.list'|trans({}, "ZIMZIMConstructionSite") }}
+            </h2>
+
+            <div class="row panel">
+                {% for actionItem in entity.actionItems %}
+                    <div class="small-3 columns">
+                        <a href="{{ path('zimzim_constructionsite_actionitem_edit', {'id': actionItem.id}) }}"
+                           class="button tiny">
+                            <span class="icon-pencil icon-medium"></span> - {{ actionItem.name }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+
             <div class="row">
                 <div class="small-4 columns text-left">
                     <a class="link-return" href="{{ path('zimzim_constructionsite_constructionsite') }}">
@@ -75,9 +87,16 @@
                         {{ 'link.return'|trans }}
                     </a>
                 </div>
-                <div class="small-4 columns text-center">
-                    <a class="tiny button" href="{{ path('zimzim_constructionsite_constructionsite_edit', { 'id': entity.id }) }}">
+                <div class="small-2 columns text-center">
+                    <a class="tiny button"
+                       href="{{ path('zimzim_constructionsite_constructionsite_edit', { 'id': entity.id }) }}">
                         {{ 'button.update'|trans }}
+                    </a>
+                </div>
+                <div class="small-2 columns text-center">
+                    <a class="tiny button"
+                       href="{{ path('zimzim_constructionsite_actionitem_addoncs', { 'id': entity.id }) }}">
+                        {{ 'zimzim_constructionsite.show.addoncs'|trans({}, "ZIMZIMConstructionSite") }}
                     </a>
                 </div>
                 <div class="small-4 columns text-center">

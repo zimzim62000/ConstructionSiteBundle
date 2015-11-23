@@ -9,3 +9,8 @@ services:
         arguments: [ @doctrine.orm.entity_manager, @security.token_storage, @security.authorization_checker ]
         tags:
             - { name: kernel.event_subscriber, priority: 254 }
+    zimzim_constructionsite.listener.actionitem:
+        class: ZIMZIM\ConstructionSiteBundle\EventListener\ActionItemListener
+        arguments: [ @doctrine.orm.entity_manager, @security.token_storage, @security.authorization_checker ]
+        tags:
+            - { name: kernel.event_subscriber, priority: 254 }

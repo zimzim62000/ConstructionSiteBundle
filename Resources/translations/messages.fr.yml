@@ -1,7 +1,8 @@
 ZIMZIMConstructionSite:
     name: "Nom"
-    name: "Ville"
+    city: "Ville"
     date: "Date"
+    text: "Description"
     duration: "Durée"
     created_at: "Créer le"
     filebefore: "Photo avant"
@@ -9,3 +10,9 @@ ZIMZIMConstructionSite:
     fileafter: "Photo aprés"
 ZIMZIMTypeActionItem:
     name: "Nom"
+ZIMZIMActionItem:
+    name: "Nom"
+    text: "Description"
+    typeActionItem: "Type d'action"
+    constructionSite: "Chantier"
+    position: "Position dans le chantier"

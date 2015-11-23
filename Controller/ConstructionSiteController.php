@@ -128,7 +128,6 @@ class ConstructionSiteController extends MainController
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find AcmeCS entity.');
         }
-
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render(

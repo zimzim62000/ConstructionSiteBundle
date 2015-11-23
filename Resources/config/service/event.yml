@@ -3,3 +3,5 @@ services:
         class: ZIMZIM\ConstructionSiteBundle\Event\ConstructionSiteEvent
     zimzim_constructionsite.event.typeactionitem:
         class: ZIMZIM\ConstructionSiteBundle\Event\TypeActionItemEvent
+    zimzim_constructionsite.event.actionitem:
+        class: ZIMZIM\ConstructionSiteBundle\Event\ActionItemEvent

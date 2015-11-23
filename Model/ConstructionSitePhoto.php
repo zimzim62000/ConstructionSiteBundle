@@ -16,7 +16,6 @@ use ZIMZIM\ToolsBundle\Model\APYDataGrid\ApyDataGridFilePathInterface;
  * @ORM\MappedSuperclass
  *
  */
-
 abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
 {
     /**
@@ -32,7 +31,7 @@ abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
 
     protected function getUploadRootDir()
     {
-        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
 
@@ -51,12 +50,12 @@ abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
 
     public function getAbsolutePathBefore()
     {
-        return null === $this->pathBefore ? null : $this->getUploadRootDir() . '/' . $this->pathBefore;
+        return null === $this->pathBefore ? null : $this->getUploadRootDir().'/'.$this->pathBefore;
     }
 
     public function getWebPathBefore()
     {
-        return null === $this->pathBefore ? null : $this->getUploadDir() . '/' . $this->pathBefore;
+        return null === $this->pathBefore ? null : $this->getUploadDir().'/'.$this->pathBefore;
     }
 
 
@@ -77,12 +76,12 @@ abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
 
     public function getAbsolutePathPending()
     {
-        return null === $this->pathPending ? null : $this->getUploadRootDir() . '/' . $this->pathPending;
+        return null === $this->pathPending ? null : $this->getUploadRootDir().'/'.$this->pathPending;
     }
 
     public function getWebPathPending()
     {
-        return null === $this->pathPending ? null : $this->getUploadDir() . '/' . $this->pathPending;
+        return null === $this->pathPending ? null : $this->getUploadDir().'/'.$this->pathPending;
     }
 
 
@@ -103,12 +102,12 @@ abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
 
     public function getAbsolutePathAfter()
     {
-        return null === $this->pathAfter ? null : $this->getUploadRootDir() . '/' . $this->pathAfter;
+        return null === $this->pathAfter ? null : $this->getUploadRootDir().'/'.$this->pathAfter;
     }
 
     public function getWebPathAfter()
     {
-        return null === $this->pathAfter ? null : $this->getUploadDir() . '/' . $this->pathAfter;
+        return null === $this->pathAfter ? null : $this->getUploadDir().'/'.$this->pathAfter;
     }
 
 
@@ -117,7 +116,7 @@ abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
      */
     public function createDir()
     {
-        if(!file_exists($this->getUploadRootDir())){
+        if (!file_exists($this->getUploadRootDir())) {
             mkdir($this->getUploadRootDir(), 0777);
         }
         $this->upload();
@@ -189,7 +188,7 @@ abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
 
 
     /**
-     * @ORM\PostRemove()
+     * @ORM\PreRemove()
      */
     public function removeUpload()
     {
@@ -215,7 +214,8 @@ abstract class ConstructionSitePhoto implements ApyDataGridFilePathInterface
         $random = rand(1, 1000);
         $extension = strrchr($file->getClientOriginalName(), '.');
         $filename = str_replace($extension, '', $file->getClientOriginalName());
-        return urlencode($filename) . '-' . $random . '.' . $file->guessExtension();
+
+        return urlencode($filename).'-'.$random.'.'.$file->guessExtension();
     }
 
     /**

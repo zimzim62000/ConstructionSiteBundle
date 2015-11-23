@@ -11,3 +11,9 @@ services:
         arguments:
             - @zimzim_constructionsite.entity.typeactionitem
             - %zimzim_construction_site.typeactionitem_form%
+
+    zimzim_constructionsite_configuration_actionitem:
+        class: "ZIMZIM\ConstructionSiteBundle\Doctrine\Configuration\ConfigurationActionItem"
+        arguments:
+            - @zimzim_constructionsite.entity.actionitem
+            - %zimzim_construction_site.actionitem_form%

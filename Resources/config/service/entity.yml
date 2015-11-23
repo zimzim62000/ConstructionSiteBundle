@@ -3,3 +3,5 @@ services:
         class: %zimzim_construction_site.constructionsite_class%
     zimzim_constructionsite.entity.typeactionitem:
         class: %zimzim_construction_site.typeactionitem_class%
+    zimzim_constructionsite.entity.actionitem:
+        class: %zimzim_construction_site.actionitem_class%

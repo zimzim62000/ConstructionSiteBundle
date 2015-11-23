@@ -10,3 +10,9 @@ services:
         arguments: [ @zimzim_construction_site_typeactionitemmanager ]
         tags:
             - { name: form.type, alias: zimzim_constructionsitebundle_typeactionitemtype }
+
+    zimzim_construction_site.form.actionitemform:
+        class: ZIMZIM\ConstructionSiteBundle\Form\Type\ActionItemType
+        arguments: [ @zimzim_construction_site_actionitemmanager ]
+        tags:
+            - { name: form.type, alias: zimzim_constructionsitebundle_actionitemtype }

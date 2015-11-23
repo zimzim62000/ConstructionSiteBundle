@@ -2,6 +2,7 @@
 
 namespace ZIMZIM\ConstructionSiteBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use APY\DataGridBundle\Grid\Mapping as GRID;
@@ -82,6 +83,18 @@ abstract class ConstructionSite extends ConstructionSitePhoto
      * @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="ActionItem", mappedBy="constructionSite")
+     *
+     */
+    protected $actionItems;
+
+
+    public function __construct(){
+        $this->actionItems = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -318,4 +331,26 @@ abstract class ConstructionSite extends ConstructionSitePhoto
     }
 
     use MetaSEO;
+
+    public function __toString(){
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActionItems()
+    {
+        return $this->actionItems;
+    }
+
+    /**
+     * @param mixed $actionItems
+     */
+    public function setActionItems($actionItems)
+    {
+        $this->actionItems = $actionItems;
+
+        return $this;
+    }
 }
