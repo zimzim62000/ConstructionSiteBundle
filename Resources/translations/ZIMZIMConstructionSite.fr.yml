@@ -9,8 +9,14 @@ constructionsite:
     imagebefore: "Image avant chantier"
     imagepending: "Image pendant chantier"
     imageafter: "Image aprés chantier"
+typeactionitem:
+    name: "Nom du type de travaux"
 zimzim_constructionsite:
     index:
         title: "Liste des chantiers"
     new:
         title: "Nouveau chantier"
+    show:
+        title: "Fiche du chantier %name%"
+    edit:
+        title: "Fiche du chantier %name%"

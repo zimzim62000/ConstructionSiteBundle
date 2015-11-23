@@ -1,0 +1,5 @@
+services:
+    zimzim_constructionsite.event.constructionsite:
+        class: ZIMZIM\ConstructionSiteBundle\Event\ConstructionSiteEvent
+    zimzim_constructionsite.event.typeactionitem:
+        class: ZIMZIM\ConstructionSiteBundle\Event\TypeActionItemEvent

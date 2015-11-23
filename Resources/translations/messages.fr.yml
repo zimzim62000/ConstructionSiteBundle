@@ -4,3 +4,8 @@ ZIMZIMConstructionSite:
     date: "Date"
     duration: "Durée"
     created_at: "Créer le"
+    filebefore: "Photo avant"
+    filepending: "Photo pendant"
+    fileafter: "Photo aprés"
+ZIMZIMTypeActionItem:
+    name: "Nom"

@@ -3,45 +3,45 @@
 namespace ZIMZIM\ConstructionSiteBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use ZIMZIM\ConstructionSiteBundle\Model\ConstructionSite;
+use ZIMZIM\ConstructionSiteBundle\Doctrine\TypeActionItemManager;
+use ZIMZIM\ConstructionSiteBundle\Model\TypeActionItem;
 use ZIMZIM\ConstructionSiteBundle\ZIMZIMConstructionSiteEvent;
 use ZIMZIM\ToolsBundle\Controller\MainController;
-use ZIMZIM\ConstructionSiteBundle\Doctrine\ConstructionSiteManager;
 
 /**
- * ConstructionSiteController controller.
+ * TypeActionItemController controller.
  *
  */
-class ConstructionSiteController extends MainController
+class TypeActionItemController extends MainController
 {
 
-    const DIR = 'ZIMZIMConstructionSiteBundle:ConstructionSite';
+    const DIR = 'ZIMZIMConstructionSiteBundle:TypeActionItem';
 
     /**
-     * Lists all AcmeCS entities.
+     * Lists all AcmeTAI entities.
      *
      */
     public function indexAction()
     {
-        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+        $manager = $this->container->get('zimzim_construction_site_typeactionitemmanager');
 
         $data = array(
             'manager' => $manager,
             'dir' => self::DIR,
-            'show' => 'zimzim_constructionsite_constructionsite_show',
-            'edit' => 'zimzim_constructionsite_constructionsite_edit'
+            'show' => 'zimzim_constructionsite_typeactionitem_show',
+            'edit' => 'zimzim_constructionsite_typeactionitem_edit'
         );
 
         return $this->gridList($data);
     }
 
     /**
-     * Creates a new ConstructionSite entity.
+     * Creates a new AcmeTAI entity.
      *
      */
     public function createAction(Request $request)
     {
-        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+        $manager = $this->container->get('zimzim_construction_site_typeactionitemmanager');
         $entity = $manager->createEntity();
         $form = $this->createCreateForm($entity, $manager);
 
@@ -49,13 +49,13 @@ class ConstructionSiteController extends MainController
 
         if ($form->isValid()) {
 
-            $event = $this->container->get('zimzim_constructionsite.event.constructionsite');
-            $event->setConstructionSite($entity);
-            $this->container->get('event_dispatcher')->dispatch(ZIMZIMConstructionSiteEvent::ConstructionSiteAdd, $event);
+            $event = $this->container->get('zimzim_constructionsite.event.typeactionitem');
+            $event->setTypeActionItem($entity);
+            $this->container->get('event_dispatcher')->dispatch(ZIMZIMConstructionSiteEvent::TypeActionItemAdd, $event);
             $this->createSuccess();
 
             return $this->redirect(
-                $this->generateUrl('zimzim_constructionsite_constructionsite_show', array('id' => $entity->getId()))
+                $this->generateUrl('zimzim_constructionsite_typeactionitem_show', array('id' => $entity->getId()))
             );
         }
 
@@ -69,19 +69,19 @@ class ConstructionSiteController extends MainController
     }
 
     /**
-     * Creates a form to create a AcmeCS entity.
+     * Creates a form to create a AcmeTAI entity.
      *
-     * @param AcmeCS $entity The entity
+     * @param AcmeTAI $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(ConstructionSite $entity, ConstructionSiteManager $manager)
+    private function createCreateForm(TypeActionItem $entity, TypeActionItemManager $manager)
     {
         $form = $this->createForm(
             $manager->getFormName(),
             $entity,
             array(
-                'action' => $this->generateUrl('zimzim_constructionsite_constructionsite_create'),
+                'action' => $this->generateUrl('zimzim_constructionsite_typeactionitem_create'),
                 'method' => 'POST',
             )
         );
@@ -96,13 +96,12 @@ class ConstructionSiteController extends MainController
     }
 
     /**
-     * Displays a form to create a new AcmeCS entity.
+     * Displays a form to create a new AcmeTAI entity.
      *
      */
     public function newAction()
     {
-        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
-
+        $manager = $this->container->get('zimzim_construction_site_typeactionitemmanager');
         $entity = $manager->createEntity();
         $form = $this->createCreateForm($entity, $manager);
 
@@ -116,17 +115,17 @@ class ConstructionSiteController extends MainController
     }
 
     /**
-     * Finds and displays a AcmeCS entity.
+     * Finds and displays a AcmeTAI entity.
      *
      */
     public function showAction($id)
     {
-        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+        $manager = $this->container->get('zimzim_construction_site_typeactionitemmanager');
 
         $entity = $manager->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find AcmeCS entity.');
+            throw $this->createNotFoundException('Unable to find AcmeTAI entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -141,17 +140,17 @@ class ConstructionSiteController extends MainController
     }
 
     /**
-     * Displays a form to edit an existing AcmeCS entity.
+     * Displays a form to edit an existing AcmeTAI entity.
      *
      */
     public function editAction($id)
     {
-        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+        $manager = $this->container->get('zimzim_construction_site_typeactionitemmanager');
 
         $entity = $manager->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ConstructionSite entity.');
+            throw $this->createNotFoundException('Unable to find AcmeTAI entity.');
         }
 
         $editForm = $this->createEditForm($entity, $manager);
@@ -168,20 +167,20 @@ class ConstructionSiteController extends MainController
     }
 
     /**
-     * Creates a form to edit a AcmeCS entity.
+     * Creates a form to edit a AcmeTAI entity.
      *
-     * @param AcmeCS $entity The entity
+     * @param AcmeTAI $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createEditForm(ConstructionSite $entity, ConstructionSiteManager $manager)
+    private function createEditForm(TypeActionItem $entity, TypeActionItemManager $manager)
     {
         $form = $this->createForm(
             $manager->getFormName(),
             $entity,
             array(
                 'action' => $this->generateUrl(
-                    'zimzim_constructionsite_constructionsite_update',
+                    'zimzim_constructionsite_typeactionitem_update',
                     array('id' => $entity->getId())
                 ),
                 'method' => 'PUT',
@@ -198,17 +197,17 @@ class ConstructionSiteController extends MainController
     }
 
     /**
-     * Edits an existing AcmeCS entity.
+     * Edits an existing AcmeTAI entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
-        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+        $manager = $this->container->get('zimzim_construction_site_typeactionitemmanager');
 
         $entity = $manager->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ConstructionSite entity.');
+            throw $this->createNotFoundException('Unable to find AcmeTAI entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -217,13 +216,13 @@ class ConstructionSiteController extends MainController
 
         if ($editForm->isValid()) {
 
-            $event = $this->container->get('zimzim_constructionsite.event.constructionsite');
-            $event->setConstructionSite($entity);
-            $this->container->get('event_dispatcher')->dispatch(ZIMZIMConstructionSiteEvent::ConstructionSiteUpdate, $event);
+            $event = $this->container->get('zimzim_constructionsite.event.typeactionitem');
+            $event->setTypeActionItem($entity);
+            $this->container->get('event_dispatcher')->dispatch(ZIMZIMConstructionSiteEvent::TypeActionItemUpdate, $event);
             $this->updateSuccess();
 
             return $this->redirect(
-                $this->generateUrl('zimzim_constructionsite_constructionsite_show', array('id' => $entity->getId()))
+                $this->generateUrl('zimzim_constructionsite_typeactionitem_show', array('id' => $id))
             );
         }
 
@@ -238,7 +237,7 @@ class ConstructionSiteController extends MainController
     }
 
     /**
-     * Deletes a AcmeCS entity.
+     * Deletes a AcmeTAI entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -248,25 +247,25 @@ class ConstructionSiteController extends MainController
 
         if ($form->isValid()) {
 
-            $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+            $manager = $this->container->get('zimzim_construction_site_typeactionitemmanager');
 
             $entity = $manager->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find ConstructionSite entity.');
+                throw $this->createNotFoundException('Unable to find AcmeTAI entity.');
             }
 
-            $event = $this->container->get('zimzim_constructionsite.event.constructionsite');
-            $event->setConstructionSite($entity);
-            $this->container->get('event_dispatcher')->dispatch(ZIMZIMConstructionSiteEvent::ConstructionSiteDelete, $event);
+            $event = $this->container->get('zimzim_constructionsite.event.typeactionitem');
+            $event->setTypeActionItem($entity);
+            $this->container->get('event_dispatcher')->dispatch(ZIMZIMConstructionSiteEvent::TypeActionItemDelete, $event);
             $this->deleteSuccess();
         }
 
-        return $this->redirect($this->generateUrl('zimzim_constructionsite_constructionsite'));
+        return $this->redirect($this->generateUrl('zimzim_constructionsite_typeactionitem'));
     }
 
     /**
-     * Creates a form to delete a AcmeCS entity by id.
+     * Creates a form to delete a AcmeTAI entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -275,7 +274,7 @@ class ConstructionSiteController extends MainController
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('zimzim_constructionsite_constructionsite_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('zimzim_constructionsite_typeactionitem_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add(
                 'submit',

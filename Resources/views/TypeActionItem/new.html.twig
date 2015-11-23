@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'zimzim_constructionsite_typeactionitem.index.title'|trans }}
+{% endblock title %}
+
+
+{% block page %}
+    <div class="row">
+        <div class="medium-12 columns">
+            <h1 class="text-center title">AcmeTAI creation</h1>
+        </div>
+    </div>
+
+    <div class="panel">
+    {{ form(form) }}
+    </div>
+
+        <div class="row">
+    <div class="small-4 columns text-left">
+        <a class="link-return" href="{{ path('zimzim_constructionsite_typeactionitem') }}">
+            <i class="icon-arrow-left icon-normal vertical"></i>
+            {{ 'link.return'|trans }}
+        </a>
+    </div>
+</div>
+
+{% endblock %}

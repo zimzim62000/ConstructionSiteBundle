@@ -1,0 +1,89 @@
+{% extends '::base.html.twig' %}
+
+
+{% block title %}
+    {{ 'zimzim_constructionsite.show.title'|trans({"%name%": entity.name}, "ZIMZIMConstructionSite") }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="medium-12 columns">
+            <h1 class="text-center title">
+                {{ 'zimzim_constructionsite.show.title'|trans({"%name%": entity.name}, "ZIMZIMConstructionSite") }}
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns">
+            <table class="width-100 panel">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ entity.name }}</td>
+                </tr>
+                <tr>
+                    <th>Text</th>
+                    <td>{{ entity.text }}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{ entity.city }}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Duration</th>
+                    <td>{{ entity.duration }}</td>
+                </tr>
+                <tr>
+                    <th>Createdat</th>
+                    <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Pathbefore</th>
+                    <td><img src="/{{ entity.getWebPathBefore }}" class="img-medium" /></td>
+                </tr>
+                <tr>
+                    <th>Pathpending</th>
+                    <td><img src="/{{ entity.getWebPathPending }}" class="img-medium" /></td>
+                </tr>
+                <tr>
+                    <th>Pathafter</th>
+                    <td><img src="/{{ entity.getWebPathAfter }}" class="img-medium" /></td>
+                </tr>
+                <tr>
+                    <th>Titleseo</th>
+                    <td>{{ entity.titleSeo }}</td>
+                </tr>
+                <tr>
+                    <th>Descseo</th>
+                    <td>{{ entity.descSeo }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="row">
+                <div class="small-4 columns text-left">
+                    <a class="link-return" href="{{ path('zimzim_constructionsite_constructionsite') }}">
+                        <i class="icon-arrow-left icon-normal vertical"></i>
+                        {{ 'link.return'|trans }}
+                    </a>
+                </div>
+                <div class="small-4 columns text-center">
+                    <a class="tiny button" href="{{ path('zimzim_constructionsite_constructionsite_edit', { 'id': entity.id }) }}">
+                        {{ 'button.update'|trans }}
+                    </a>
+                </div>
+                <div class="small-4 columns text-center">
+                    {{ form(delete_form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

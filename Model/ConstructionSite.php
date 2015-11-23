@@ -30,7 +30,7 @@ abstract class ConstructionSite extends ConstructionSitePhoto
     /**
      * @var string
      *
-     * @GRID\Column(operatorsVisible=false, title="ZIMZIMConstructionSite.name")
+     * @GRID\Column(operatorsVisible=false, title="ZIMZIMConstructionSite.name", filter="select",  selectFrom="source")
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
@@ -58,7 +58,7 @@ abstract class ConstructionSite extends ConstructionSitePhoto
     /**
      * @var \Date
      *
-     * @GRID\Column(operatorsVisible=false, title="ZIMZIMConstructionSite.date")
+     * @GRID\Column(operatorsVisible=false, filterable=false, title="ZIMZIMConstructionSite.date")
      *
      * @ORM\Column(name="date", type="date")
      */

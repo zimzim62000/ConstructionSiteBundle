@@ -1,6 +1,13 @@
 services:
+
     zimzim_constructionsite_configuration_constructionsite:
         class: "ZIMZIM\ConstructionSiteBundle\Doctrine\Configuration\ConfigurationConstructionSite"
         arguments:
             - @zimzim_constructionsite.entity.constructionsite
             - %zimzim_construction_site.constructionsite_form%
+
+    zimzim_constructionsite_configuration_typeactionitem:
+        class: "ZIMZIM\ConstructionSiteBundle\Doctrine\Configuration\ConfigurationTypeActionItem"
+        arguments:
+            - @zimzim_constructionsite.entity.typeactionitem
+            - %zimzim_construction_site.typeactionitem_form%

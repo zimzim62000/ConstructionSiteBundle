@@ -4,3 +4,9 @@ services:
         arguments: [ @zimzim_construction_site_constructionsitemanager ]
         tags:
             - { name: form.type, alias: zimzim_constructionsitebundle_constructionsitetype }
+
+    zimzim_construction_site.form.typeactionitemform:
+        class: ZIMZIM\ConstructionSiteBundle\Form\Type\TypeActionItemType
+        arguments: [ @zimzim_construction_site_typeactionitemmanager ]
+        tags:
+            - { name: form.type, alias: zimzim_constructionsitebundle_typeactionitemtype }

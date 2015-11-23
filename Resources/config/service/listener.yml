@@ -1,0 +1,11 @@
+services:
+    zimzim_constructionsite.listener.constructionsite:
+        class: ZIMZIM\ConstructionSiteBundle\EventListener\ConstructionSiteListener
+        arguments: [ @doctrine.orm.entity_manager, @security.token_storage, @security.authorization_checker ]
+        tags:
+            - { name: kernel.event_subscriber, priority: 254 }
+    zimzim_constructionsite.listener.typeactionitem:
+        class: ZIMZIM\ConstructionSiteBundle\EventListener\TypeActionItemListener
+        arguments: [ @doctrine.orm.entity_manager, @security.token_storage, @security.authorization_checker ]
+        tags:
+            - { name: kernel.event_subscriber, priority: 254 }

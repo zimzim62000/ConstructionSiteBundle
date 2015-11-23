@@ -26,6 +26,10 @@ class ZIMZIMConstructionSiteExtension extends Extension
         $container->setParameter($this->getAlias() . '.constructionsite_repo', $config['constructionsite_repo']);
         $container->setParameter($this->getAlias() . '.constructionsite_form', $config['constructionsite_form']);
 
+        $container->setParameter($this->getAlias() . '.typeactionitem_class', $config['typeactionitem_class']);
+        $container->setParameter($this->getAlias() . '.typeactionitem_repo', $config['typeactionitem_repo']);
+        $container->setParameter($this->getAlias() . '.typeactionitem_form', $config['typeactionitem_form']);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

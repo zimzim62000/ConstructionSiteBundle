@@ -3,5 +3,7 @@ imports:
     - { resource: service/form.yml }
     - { resource: service/manager.yml }
     - { resource: service/entity.yml }
+    - { resource: service/event.yml }
+    - { resource: service/listener.yml }
     #- { resource: service/factory.yml }
     #- { resource: service/validator.yml }
