@@ -1,0 +1,90 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ entity.titleSeo }}
+{% endblock title %}
+
+{% block metadescription %}
+    {{ entity.descSeo }}
+{% endblock metadescription %}
+
+{% block page %}
+    <h1 class="text-center title">
+        {{ 'zimzim_constructionsite.showbyslug.title'|trans({"%name%": entity.name, "%city%": entity.city}, "ZIMZIMConstructionSite") }}
+    </h1>
+
+    <div class="row">
+        <div class="medium-4 columns text-center">
+            <p class="helper-img nopadding nomargin bgprimary whitecolor">
+                {{ 'zimzim_constructionsite.showbyslug.photobefore'|trans({}, "ZIMZIMConstructionSite") }}
+            </p>
+            <img src="/{{ entity.webpathbefore }}"/>
+        </div>
+        <div class="medium-4 columns text-center">
+            <p class="helper-img nopadding nomargin bgprimary whitecolor">
+                {{ 'zimzim_constructionsite.showbyslug.photoepending'|trans({}, "ZIMZIMConstructionSite") }}
+            </p>
+            <img src="/{{ entity.webpathpending }}"/>
+        </div>
+        <div class="medium-4 columns text-center">
+            <p class="helper-img nopadding nomargin bgprimary whitecolor">
+                {{ 'zimzim_constructionsite.showbyslug.photoafter'|trans({}, "ZIMZIMConstructionSite") }}
+            </p>
+            <img src="/{{ entity.webpathafter }}"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-8 columns">
+            <h2 class="text-center">{{ entity.name }}</h2>
+        </div>
+        <div class="small-4 columns">
+            <p class="text-center nopadding nomargin">
+                {{ entity.date|date('d/m/Y') }} - {{ entity.city }}<br/>
+                {{ entity.duration }}
+            </p>
+        </div>
+        <div class="small-12 columns">
+            {{ entity.text|raw }}
+        </div>
+    </div>
+
+
+    <h3 class="text-center">
+        {{ 'zimzim_constructionsite.showbyslug.listaction'|trans({}, "ZIMZIMConstructionSite") }}
+    </h3>
+
+
+    {% for action in entity.actionItems %}
+        <section class="panel row full-width">
+            <div class="medium-12 columns text-center">
+                <h4 class="text-center">
+                    {{ action.typeActionItem.name }} -- {{ action.name }}
+                </h4>
+
+                <p class="nomargin nopadding text-justify">
+                    {{ action.text }}
+                </p>
+            </div>
+            <div class="medium-4 columns text-center">
+                <p class="helper-img nopadding nomargin bgprimary whitecolor">
+                    {{ 'zimzim_constructionsite.showbyslug.photobefore'|trans({}, "ZIMZIMConstructionSite") }}
+                </p>
+                <img src="/{{ action.webpathbefore }}"/>
+            </div>
+            <div class="medium-4 columns text-center">
+                <p class="helper-img nopadding nomargin bgprimary whitecolor">
+                    {{ 'zimzim_constructionsite.showbyslug.photoepending'|trans({}, "ZIMZIMConstructionSite") }}
+                </p>
+                <img src="/{{ action.webpathpending }}"/>
+            </div>
+            <div class="medium-4 columns text-center">
+                <p class="helper-img nopadding nomargin bgprimary whitecolor">
+                    {{ 'zimzim_constructionsite.showbyslug.photoafter'|trans({}, "ZIMZIMConstructionSite") }}
+                </p>
+                <img src="/{{ action.webpathafter }}"/>
+            </div>
+        </section>
+    {% endfor %}
+
+{% endblock %}

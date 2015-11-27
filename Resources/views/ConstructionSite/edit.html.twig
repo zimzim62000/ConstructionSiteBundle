@@ -31,3 +31,12 @@
     </div>
 
 {% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    {% include 'ZIMZIMToolsBundle:Form:Type/tinymce.html.twig' %}
+
+{% endblock %}

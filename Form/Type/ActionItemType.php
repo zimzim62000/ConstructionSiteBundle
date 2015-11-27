@@ -33,7 +33,7 @@ class ActionItemType extends AbstractType
             )
             ->add(
                 'text',
-                null,
+                'zimzim_toolsbundle_zimzimtinymce',
                 array('label' => 'actionitem.text', 'translation_domain' => 'ZIMZIMConstructionSite')
             )
             ->add(

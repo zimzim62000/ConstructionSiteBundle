@@ -31,7 +31,7 @@ class ConstructionSiteType extends AbstractType
                 array('label' => 'constructionsite.name', 'translation_domain' => 'ZIMZIMConstructionSite')
             )
             ->add('text',
-                null,
+                'zimzim_toolsbundle_zimzimtinymce',
                 array('label' => 'constructionsite.text', 'translation_domain' => 'ZIMZIMConstructionSite')
             )
             ->add('titleSeo',

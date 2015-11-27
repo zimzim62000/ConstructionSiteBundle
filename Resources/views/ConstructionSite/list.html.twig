@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ 'zimzim_constructionsite.list.title'|trans({}, "ZIMZIMConstructionSite") }}
+{% endblock title %}
+
+{% block page %}
+    <div class="row">
+        <div class="small-10 columns">
+            <h1 class="text-center title">
+                {{ 'zimzim_constructionsite.list.title'|trans({}, "ZIMZIMConstructionSite") }}
+            </h1>
+        </div>
+    </div>
+
+    <div class="row full-width">
+        <div class="small-10 small-centered columns">
+            <div id="owl-demo" class="owl-carousel owl-theme owl-item">
+                {% for entity in entities %}
+                    {% set url = path('zimzim_constructionsite_constructionsite_showbyslug', {'slug': entity.slug}) %}
+                    <div class="item">
+                        <a href="{{ url }}">
+                            <img class="itemhome" src="/{{ entity.webpathAfter }}"
+                                 alt="{{ entity.name }} - {{ entity.titleSeo }}"/>
+                        </a>
+
+                        <h2 class="text-center title-itemhomebox nomargin">
+                            <a href="{{ url }}">{{ entity.name }} - {{ entity.date|date('d/m/Y') }}</a>
+                        </h2>
+
+                        <h3 class="text-center title-itemhomebox nomargin">
+                            <a href="{{ url }}">{{ entity.titleSeo }} - {{ entity.descSeo }}</a>
+                        </h3>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function () {
+
+            $("#owl-demo").owlCarousel({
+                autoPlay: 7000,
+                navigation: false,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                'afterAction': function () {
+                    return this;
+                },
+                'addClassActive': true,
+                'afterInit': function () {
+                    return this;
+                }
+            });
+            window.Carousel = $(".owl-carousel").data('owlCarousel');
+        });
+    </script>
+{% endblock javascripts %}

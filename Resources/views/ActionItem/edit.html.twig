@@ -1,6 +1,5 @@
 {% extends '::base.html.twig' %}
 
-
 {% block title %}
     {{ 'zimzim_actionitem.edit.title'|trans({"%name%": entity.name}, 'ZIMZIMConstructionSite') }}
 {% endblock title %}
@@ -21,6 +20,12 @@
 
     <div class="row">
         <div class="small-4 columns text-left">
+            <a class="link-return" href="{{ path('zimzim_constructionsite_constructionsite_show', {"id": entity.constructionSite.id}) }}">
+                <i class="icon-arrow-left icon-large vertical"></i>
+                {{ 'zimzim_actionitem.new.returntocs'|trans({}, 'ZIMZIMConstructionSite') }}
+            </a>
+        </div>
+        <div class="small-4 columns text-left">
             <a class="link-return" href="{{ path('zimzim_constructionsite_actionitem') }}">
                 <i class="icon-arrow-left icon-large vertical"></i>
                 {{ 'link.return'|trans }}
@@ -30,5 +35,14 @@
             {{ form(delete_form) }}
         </div>
     </div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    {% include 'ZIMZIMToolsBundle:Form:Type/tinymce.html.twig' %}
 
 {% endblock %}

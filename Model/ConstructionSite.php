@@ -84,9 +84,15 @@ abstract class ConstructionSite extends ConstructionSitePhoto
      */
     protected $createdAt;
 
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    protected $slug;
 
     /**
      * @ORM\OneToMany(targetEntity="ActionItem", mappedBy="constructionSite")
+     * @ORM\OrderBy("position", "ASC");
      *
      */
     protected $actionItems;
@@ -350,6 +356,24 @@ abstract class ConstructionSite extends ConstructionSitePhoto
     public function setActionItems($actionItems)
     {
         $this->actionItems = $actionItems;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
 
         return $this;
     }

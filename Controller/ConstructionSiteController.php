@@ -283,4 +283,41 @@ class ConstructionSiteController extends MainController
             )
             ->getForm();
     }
+
+
+    public function listAction(){
+
+        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+
+        $entities = $manager->getConstructionSiteByDate();
+
+        return $this->render(
+            self::DIR.':list.html.twig',
+            array(
+                'entities' => $entities
+            )
+        );
+    }
+
+    /**
+     * Finds and displays a AcmeCS entity.
+     *
+     */
+    public function showBySlugAction($slug)
+    {
+        $manager = $this->container->get('zimzim_constructionsite_constructionsitemanager');
+
+        $entity = $manager->findBySlug($slug);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find AcmeCS entity.');
+        }
+
+        return $this->render(
+            self::DIR . ':showbyslug.html.twig',
+            array(
+                'entity' => $entity
+            )
+        );
+    }
 }

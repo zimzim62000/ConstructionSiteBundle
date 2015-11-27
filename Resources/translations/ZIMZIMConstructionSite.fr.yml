@@ -9,6 +9,7 @@ constructionsite:
     imagebefore: "Image avant chantier"
     imagepending: "Image pendant chantier"
     imageafter: "Image aprés chantier"
+    created_at: "Créer le"
 typeactionitem:
     name: "Nom du type de travaux"
 actionitem:
@@ -29,14 +30,23 @@ zimzim_constructionsite:
         title: "Fiche du chantier %name%"
         addoncs: "Ajouter un travail"
         list: "Liste des travaux "
+    showbyslug:
+        title: "Le chantier %name% - %city% "
+        photobefore: "Avant"
+        photoepending: "Pendant"
+        photoafter: "Aprés"
+        listaction: "Liste des travaux éffectué sur ce chantier"
     edit:
         title: "Fiche du chantier %name%"
+    list:
+        title: "Liste de mes chantiers"
 zimzim_actionitem:
     index:
         title: "Liste des taches"
     new:
         title: "Nouvelle Tache"
         titleadd: "Nouvelle Tache pour le chantier %name%"
+        returntocs: "Retourner sur la page chantier"
     show:
         title: "Fiche de la tache %name%"
     edit:

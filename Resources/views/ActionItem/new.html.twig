@@ -23,6 +23,14 @@
     </div>
 
     <div class="row">
+        {% if construtionSite is defined %}
+            <div class="small-4 columns text-left">
+                <a class="link-return" href="{{ path('zimzim_constructionsite_constructionsite_show', {"id": construtionSite.id}) }}">
+                    <i class="icon-arrow-left icon-large vertical"></i>
+                    {{ 'zimzim_actionitem.new.returntocs'|trans({}, 'ZIMZIMConstructionSite') }}
+                </a>
+            </div>
+        {% endif %}
         <div class="small-4 columns text-left">
             <a class="link-return" href="{{ path('zimzim_constructionsite_actionitem') }}">
                 <i class="icon-arrow-left icon-large vertical"></i>
@@ -30,5 +38,14 @@
             </a>
         </div>
     </div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    {% include 'ZIMZIMToolsBundle:Form:Type/tinymce.html.twig' %}
 
 {% endblock %}

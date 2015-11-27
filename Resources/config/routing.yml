@@ -1,11 +1,15 @@
-zimzim_constructionsitebundle_constructionsite:
+zimzim_constructionsitebundle_admin_constructionsite:
     resource: "@ZIMZIMConstructionSiteBundle/Resources/config/routing/admin_constructionsite.yml"
     prefix:   /zimzim/constructionsite/
 
-zimzim_constructionsitebundle_typeactionitem:
+zimzim_constructionsitebundle_admin_typeactionitem:
     resource: "@ZIMZIMConstructionSiteBundle/Resources/config/routing/admin_typeactionitem.yml"
     prefix:   /zimzim/typeactionitem/
 
-zimzim_constructionsitebundle_actionitem:
+zimzim_constructionsitebundle_admin_actionitem:
     resource: "@ZIMZIMConstructionSiteBundle/Resources/config/routing/admin_actionitem.yml"
     prefix:   /zimzim/actionitem/
+
+zimzim_constructionsitebundle_constructionsite:
+    resource: "@ZIMZIMConstructionSiteBundle/Resources/config/routing/constructionsite.yml"
+    prefix:   /chantier/

@@ -1,0 +1,7 @@
+zimzim_constructionsite_constructionsite_list:
+    path:     /list/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ConstructionSite:list" }
+
+zimzim_constructionsite_constructionsite_showbyslug:
+    path:     /chantier/{slug}/
+    defaults: { _controller: "ZIMZIMConstructionSiteBundle:ConstructionSite:showbyslug" }

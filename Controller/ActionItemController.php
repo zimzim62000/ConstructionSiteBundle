@@ -295,12 +295,19 @@ class ActionItemController extends MainController
 
     public function addActionItemOnConstructionSiteAction(Request $request, $id)
     {
+        $cs_manager = $this->container->get('zimzim_construction_site_constructionsitemanager');
+        $constructionSite = $cs_manager->find($id);
+
+        if (!$constructionSite) {
+            throw $this->createNotFoundException('Unable to find Construction Site entity.');
+        }
 
         $manager = $this->container->get('zimzim_construction_site_actionitemmanager');
         $entity = $manager->createEntity();
         $form = $this->createCreateForm($entity, $manager, $id);
 
         if ($request->getMethod() === 'POST') {
+
             $form->handleRequest($request);
             if ($form->isValid()) {
 
@@ -321,6 +328,7 @@ class ActionItemController extends MainController
             array(
                 'entity' => $entity,
                 'form' => $form->createView(),
+                'construtionSite' => $constructionSite
             )
         );
 
