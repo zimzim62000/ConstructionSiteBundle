@@ -92,7 +92,7 @@ abstract class ConstructionSite extends ConstructionSitePhoto
 
     /**
      * @ORM\OneToMany(targetEntity="ActionItem", mappedBy="constructionSite")
-     * @ORM\OrderBy("position", "ASC");
+     * @ORM\OrderBy("position", "ASC")
      *
      */
     protected $actionItems;
